@@ -90,9 +90,22 @@ body {
 	z-index: 1;
 }
 		</style>
-		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
-<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-
+		<link id="-gd-engine-icon" rel="icon" type="image/png" href="demo-1.icon.png" />
+<link rel="apple-touch-icon" href="demo-1.apple-touch-icon.png"/>
+<style>:root{--game-safe-left:env(safe-area-inset-left,0px);--game-safe-top:env(safe-area-inset-top,0px);--game-safe-right:env(safe-area-inset-right,0px);--game-safe-bottom:env(safe-area-inset-bottom,0px)}</style>
+<script>
+const viewportMeta = document.querySelector('meta[name=viewport]');
+viewportMeta.content += ', viewport-fit=cover';
+window.ashenSafeArea = () => {
+    const canvas = document.getElementById('canvas').getBoundingClientRect();
+    const style = getComputedStyle(document.documentElement);
+    return ['left', 'top', 'right', 'bottom'].map((edge, index) => {
+        const inset = parseFloat(style.getPropertyValue('--game-safe-' + edge)) || 0;
+        const span = index % 2 === 0 ? canvas.width : canvas.height;
+        return span > 0 ? inset / span : 0;
+    });
+};
+</script>
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -104,14 +117,14 @@ body {
 		</noscript>
 
 		<div id="status">
-			<img id="status-splash" class="show-image--false fullsize--true use-filter--true" src="index.png" alt="">
+			<img id="status-splash" class="show-image--false fullsize--true use-filter--true" src="demo-1.png" alt="">
 			<progress id="status-progress"></progress>
 			<div id="status-notice"></div>
 		</div>
 
-		<script src="index.js"></script>
+		<script src="demo-1.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":14406588,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"demo-1","experimentalVK":false,"fileSizes":{"demo-1.pck":14709544,"demo-1.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
