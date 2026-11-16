@@ -4,4 +4,4 @@
 
 从「始行」选择闯关、难度和镇锋，即可进入第一章「荒嗥」的晴草坡。试玩包含荒嗥前四关。首次加载请等待游戏资源下载完成。
 
-[素材署名与许可](licenses/)
+[开始试玩](https://geqian513.github.io/ashen-firemament-demo/) · [素材署名与许可](licenses/)
